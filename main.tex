@@ -1,0 +1,83 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{txfonts}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{comment}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{tkz-euclide}
+\usepackage{gvv}
+\def\inputGnumericTable{}
+\usepackage[latin1]{inputenc}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{ifthen}
+\usepackage{lscape}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+\begin{document}
+
+\title{ANALOG : 12.10.19}
+\author{EE23BTECH11019 - Faisal Imtiyaz$^{*}$}% <-this % stops a space
+\maketitle
+
+
+\section{Problem Statement}
+
+A parallel beam of light with a wavelength of 
+
+$500$ nm falls on a narrow slit, and the resulting
+
+diffraction pattern is observed on a screen $1$ m
+
+away. The distance to the first minimum from the
+
+center of the screen is $2.5$ mm.\\
+
+Find the width of the slit given that $y = 0.0025$ 
+
+m, $L = 1$ m, and $\lambda = 5 \times 10^{-7}$ m.\\
+
+\section{Solution}
+The first minimum is given by
+:$$\sin\theta = \lambda/{a}$$
+
+Where $a$ is the width of the slit.\\
+
+Now for small angle $\theta,\  \sin\theta$ can be assumed to 
+
+be equal to $\theta$ as well as $\tan\theta$.\\
+
+So we can say $\sin\theta $ approximately equals $\tan\theta$.
+
+Therefore:
+$$\lambda/a = y/L$$
+
+Solving the expression we get $$a= L\cdot\frac{\lambda}{y}$$
+
+Plugging in the values, $$a=1\times\frac{5\times10^-7}{0.0025} = 0.2 mm$$
+
+
+
+
+\end{document}
