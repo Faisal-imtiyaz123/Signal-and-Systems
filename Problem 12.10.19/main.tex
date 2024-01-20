@@ -1,5 +1,8 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
+
 \usepackage{cite}
+\usepackage{tikz}
+\usetikzlibrary{angles, quotes}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
 \usepackage{graphicx}
@@ -37,47 +40,97 @@
 
 \begin{document}
 
-\title{ANALOG : 12.10.19}
+\title{ANALOG: 12.10.19}
 \author{EE23BTECH11019 - Faisal Imtiyaz$^{*}$}% <-this % stops a space
 \maketitle
 
-
 \section{Problem Statement}
 
-A parallel beam of light with a wavelength of 
+A parallel beam of light with a wavelength of $500$ nm falls on a narrow slit, and the resulting diffraction pattern is observed on a screen $1$ m away. The distance to the first minimum from the center of the screen is $2.5$ mm.
 
-$500$ nm falls on a narrow slit, and the resulting
+Find the width of the slit given that $y = 0.0025$ m, $L = 1$ m, and $\lambda = 5 \times 10^{-7}$ m.\\
 
-diffraction pattern is observed on a screen $1$ m
 
-away. The distance to the first minimum from the
+\section{Derivation}
 
-center of the screen is $2.5$ mm.\\
+\begin{tikzpicture}
+\draw[<->] (-0.5,-1) -- node[left] {$d$} (-0.5,1);
+\draw[<->] (-0.2,-0.1) -- node[right] {$s$} (-0.2,1);
+\draw (0,-6)--(0,-1) (0,1)--(0,6);
+\draw (7,-6) -- (7,6);
+\node at (4,0.1) [above] {$x+dx$};
+\node at (4,1.5) [above] {$x$};
+\draw[gray] (0,-0.1) -- (7,2);
+\draw[gray] (0,1) -- (7,2);
+\draw[thick] (0,-0.1) -- (0,0.1);
+\coordinate[label=right:$P$] (P) at (7,2);
+\coordinate[label=right:$R$] (R) at (2,-0.1);
+\coordinate[label=below:$ds$] (S) at (0,-0.1);
+\fill[black] (0,-0.2) rectangle (0.08,0.1);
+\pic[draw, angle radius=1cm, angle eccentricity=1.5, "$\theta$"] {angle = R--S--P};
+\draw[thick,dotted] (0,-0.1)--(2,-0.1);
+\draw[thick,dotted] (0,1) -- (0.5,0.1);
+\end{tikzpicture}
 
-Find the width of the slit given that $y = 0.0025$ 
+Let $dE$ be the electric field at point $P$ due to light from $ds$ part of the slit. Since the Electric field $dE$ is proportional to the small slit width $ds$, we can say that:
+\begin{align*}
+dE &= G \cos(k(x+dx) - \omega t) \, ds \\
+&\implies E = G \int_{0}^{b} \cos(k(x+dx) - \omega t) \, ds
+\end{align*}
 
-m, $L = 1$ m, and $\lambda = 5 \times 10^{-7}$ m.\\
+Here, $G$ is the constant of proportionality.
+
+Now, from the figure it can be easily seen that $s\sin\theta = dx$, so,
+\begin{align*}
+E &= G \int_{0}^{b} \cos(k(x+s\sin\theta) - \omega t) \, ds \\
+&= G \left[\frac{\sin((k \sin\theta) s + (kx - \omega t)s)}{k \sin\theta}\right]_{s=0}^{s=b} \\
+&= G\left[\frac{\sin(kb\sin\theta+kx-wt)-\sin(kx-wt)}{k\sin\theta}\right] \\
+&= \frac{2G}{k\sin\theta}\sin\left(\frac{kb\sin\theta}{2}\right)\cos\left(kx-wt+\frac{kb\sin\theta}{2}\right)
+\end{align*}
+
+
+Now, let $\frac{k\beta\sin\theta}{2} = \beta$. Also, the above equation represents a wave with amplitude $A$ of $\frac{2G}{k\sin\theta}\sin\left(\frac{k\beta\sin\theta}{2}\right)$.\\
+
+
+$A$ can be written as $A = \frac{Gb\cdot\sin\beta}{\beta}$.
+The intensity of the wave will be proportional to $A^2$. For minima, the intensity should be $0$. Therefore, for minima we have:
+$$
+\sin\beta = 0,  \beta \neq 0
+$$
+Therefore, $$
+\sin\beta = n\pi
+$$
+where \(n\) is a natural number.
+
+So, the first minima should occur at:
+\begin{align*}
+&\beta = \pi,\\
+&\frac{kb\sin\theta}{2} = \pi,\\
+&\frac{\pi\sin\theta}{\lambda} = \pi,\\
+&\sin\theta = \frac{\lambda}{b}
+\end{align*}
 
 \section{Solution}
-The first minimum is given by
-:$$\sin\theta = \lambda/{a}$$
 
-Where $a$ is the width of the slit.\\
+The first minimum is given by:
+\[
+\sin\theta = \frac{\lambda}{b}
+\]
 
-Now for small angle $\theta,\  \sin\theta$ can be assumed to 
+Where \(b\) is the width of the slit.
 
-be equal to $\theta$ as well as $\tan\theta$.\\
-
-So we can say $\sin\theta $ approximately equals $\tan\theta$.
+Now for a small angle \(\theta\), \(\sin\theta\) can be assumed to be equal to \(\theta\) as well as \(\tan\theta\). So we can say \(\sin\theta\) is approximately equal to \(\tan\theta\).
 
 Therefore:
-$$\lambda/a = y/L$$
+\[
+\frac{\lambda}{b} = \frac{y}{L}
+\]
 
-Solving the expression we get $$a= L\cdot\frac{\lambda}{y}$$
+Solving the expression we get:
+\[
+b = L \cdot \frac{\lambda}{y}
+\]
 
-Plugging in the values, $$a=1\times\frac{5\times10^-7}{0.0025} = 0.2 mm$$
-
-
-
+Plugging in the values, \(b = 1 \times \frac{5 \times 10^{-7}}{0.0025} = 0.2\) mm.
 
 \end{document}
