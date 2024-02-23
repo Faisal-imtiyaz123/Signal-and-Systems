@@ -60,8 +60,20 @@
 $1,-a, a^2, -a^3,...n$ terms (if $a\neq-1$).\\
 \solution
 \input{tables/11.9.3.9.table1}
-\newline
+% \newline
 \input{tables/z-transform}
+Poles of the respecttive signals are as:
+\begin{align}
+    1-z^{-1} =& 0\\ 
+    \implies  |z|  =1\\
+    1-az^{-1} =& 0\\
+    \implies |z| = \frac{1}{a}\\
+\end{align}
+Both the Signals are right sided so ROC is :
+\begin{align}
+    |z| > 1 \text{and} |z| > \frac{1}{a}\\
+\end{align}
+So for $0<a<1$ ROC is $|z| > \frac{1}{a}$ and otherwise ROC is $|z| > 1$\\
 From \tabref{tab:1.11.3.9},
 \begin{align}
 X\brak{z} =& \frac{1}{1+az^{-1}}\\
@@ -76,8 +88,8 @@ Using Z transform pairs  to find the inverse Z-transform:\\
     Y\brak{z}=& \frac{1}{a+1}\sbrak{\frac{1}{1-z^{-1}} - \frac{1}{1+az^{-1}}}\\
     =& \frac{1}{a+1}\sbrak{\frac{1-z^{-2}}{1-z^{-1}}+\frac{z^{-1}}{1-z^{-1}} -\frac{{1}-a^{2}z^{-1}}{1+az^{-1}} -\frac{a^{2}z^{-1}}{1+az^{-1}}}\\
     =& 1+\frac{1}{a+1}\sbrak{\frac{z^{-1}}{1-z^{-1}}-\frac{a^{2}z^{-1}}{1+az^{-1}}}\\
-    y\brak{n} =& \delta\brak{n} + \frac{1}{a+1}\sbrak{1- a^{2}\cdot(-a)^{n}}\\
-    y\brak{n} =& \delta\brak{n}+ \frac{1-(-a)^{n}}{1-(-a)}
+    y\brak{n} =& \delta\brak{n} + \sbrak{\frac{1}{a+1}\sbrak{1- a^{2}\cdot(-a)^{n}}}u\brak{n}\\
+    y\brak{n} =& \delta\brak{n}+ \sbrak{\frac{1-(-a)^{n}}{1-(-a)}}u\brak{n}
 \end{align}
 \begin{figure}[ht!]
 	\includegraphics[width=\columnwidth]{plots/plot-file.png}
