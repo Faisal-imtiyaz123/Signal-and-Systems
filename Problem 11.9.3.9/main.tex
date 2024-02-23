@@ -62,21 +62,19 @@ $1,-a, a^2, -a^3,...n$ terms (if $a\neq-1$).\\
 \input{tables/11.9.3.9.table1}
 % \newline
 \input{tables/z-transform}
-Poles of the respecttive signals are as:
 \begin{align}
-    1-z^{-1} =& 0\\ 
-    \implies  |z|  =1\\
-    1-az^{-1} =& 0\\
-    \implies |z| = \frac{1}{a}\\
+x\brak{n} =& (-a)^{n}u(n)\\
+X\brak{z} =& \frac{1}{1+az^{-1}}\\
+\text{The ROC is :} \quad |z| > |a|\\
 \end{align}
-Both the Signals are right sided so ROC is :
-\begin{align}
-    |z| > 1 \text{and} |z| > \frac{1}{a}\\
-\end{align}
-So for $0<a<1$ ROC is $|z| > \frac{1}{a}$ and otherwise ROC is $|z| > 1$\\
+% The ROC is:
+% \begin{align}
+%     \quad |z| > |a|\\
+% \end{align}
+% So essentially ROC is $ \quad |z| > \frac{1}{}$ > 1$\\
 From \tabref{tab:1.11.3.9},
 \begin{align}
-X\brak{z} =& \frac{1}{1+az^{-1}}\\
+% X\brak{z} =& \frac{1}{1+az^{-1}}\\
 y\brak{n}= &{(-a)^n}u(n)*u\brak{n}\\
 \implies Y\brak{z}= &X\brak{z}\cdot\ U\brak{z}
 \end{align}
