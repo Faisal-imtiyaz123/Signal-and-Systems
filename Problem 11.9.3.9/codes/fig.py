@@ -1,19 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def y(n, a):
-    return (1 - (-a)**(n+1)) / (1 + a)
+# Define the function
+def y_n(n, a):
+    return (1 - (-a)**(n + 1)) / (1 + a)
 
-# Define the range of n values
-n_values = np.arange(0, 10)
+# Generate values for n (starting from n=0)
+n_values = np.arange(0, 10, 1)  # Adjust the range and step size as needed
 
-# Define the value of a
-a = 0.5
+# Choose a value for 'a'
+a = 0.7  # You can change this value as needed
 
-# Calculate y values
-y_values = y(n_values, a)
+# Calculate corresponding y values
+y_values = y_n(n_values, a)
 
-# Plotting as discrete sequence
+# Plot the function as a discrete plot
 plt.stem(n_values, y_values)
 plt.xlabel('$n$')
 plt.ylabel('$y(n)$')
