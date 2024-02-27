@@ -1,25 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Define the function
-def y_n(n, a):
-    return (1 - (-a)**n) / (1 - (-a))
+def y(n, a):
+    return (1 - (-a)**(n+1)) / (1 + a)
 
-# Generate values for n
-n_values = np.arange(0, 10, 1)  # Adjust the range and step size as needed
+# Define the range of n values
+n_values = np.arange(0, 10)
 
-# Choose a value for 'a'
-a = 0.5  # You can change this value as needed
+# Define the value of a
+a = 0.5
 
-# Calculate corresponding y values
-y_values = y_n(n_values, a)
+# Calculate y values
+y_values = y(n_values, a)
 
-# Plot the function
-plt.plot(n_values, y_values, marker='o')
-plt.xlabel('n')
-plt.ylabel('y(n)')
-plt.title('Plot of y(n)')
+# Plotting as discrete sequence
+plt.stem(n_values, y_values)
+plt.xlabel('$n$')
+plt.ylabel('$y(n)$')
 plt.grid(True)
-
-# Save the plot to a file (e.g., PNG, PDF, etc.)
-plt.savefig('plot_file.png')  # Adjust the file format and filename as needed
+plt.show()
